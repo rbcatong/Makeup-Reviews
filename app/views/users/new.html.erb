@@ -1,0 +1,20 @@
+
+<%=form_for @user do |f| %>
+
+<%= f.label :username %>
+<%= f.text_field :username%><p>
+
+<%= f.label :name %>
+<%= f.text_field :name%><p>
+
+<%= f.label :password %>
+<%= f.password_field :password%><p>
+
+  <%= f.label :bio  %>
+  <%= f.text_area :bio%><p>
+
+    <% f.label :skintype%>
+  Skintype:  <%= f.select :skintype, ['dry', 'combination', 'oily']%><p>
+
+<%= f.submit "Create User" %>
+<%end%>
