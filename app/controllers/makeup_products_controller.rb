@@ -1,0 +1,2 @@
+class MakeupProductsController < ApplicationController
+end
