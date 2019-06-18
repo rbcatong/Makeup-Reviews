@@ -8,7 +8,7 @@ Review
 <%= f.text_area :content%><p>
 
   <% f.label :rating%>
-  Skintype:  <%= f.select :rating, ['5', '4', '3', '2', '1']%><p>
+  <%= f.select :rating, ['5', '4', '3', '2', '1']%><p>
 
 <%= f.submit "Submit" %>
 <%end%>

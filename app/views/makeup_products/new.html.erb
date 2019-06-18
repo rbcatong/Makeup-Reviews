@@ -1,13 +1,14 @@
+Makeup Product Form
 <%=form_for @makeup_product do |f| %>
 
-<%= f.label :title %>
-<%= f.text_field :title%><p>
+<%= f.label :name %>
+<%= f.text_field :name%><p>
 
-<%= f.label :content %>
-<%= f.text_area :content%><p>
+<%= f.label :purpose %>
+<%= f.text_area :purpose%><p>
 
-  <% f.label :rating%>
-  Skintype:  <%= f.select :rating, ['5', '4', '3', '2', '1']%><p>
+  <% f.label :waterproof%>
+Waterproof: <%= f.check_box :waterproof %> <br />
 
 <%= f.submit "Submit" %>
 <%end%>
