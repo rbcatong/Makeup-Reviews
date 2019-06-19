@@ -14,6 +14,10 @@ class MakeupProductsController < ApplicationController
     @makeup_products = MakeupProduct.all
   end
 
+  def show
+    @makeup_product = MakeupProduct.find_by(id: params[:id])
+  end
+
   private
   def makeup_product_params
     params.require(:makeup_product).permit(:name, :purpose, :waterproof)
