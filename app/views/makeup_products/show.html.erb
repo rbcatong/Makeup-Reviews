@@ -1,8 +1,9 @@
-write a review on this page
-show the name
-<%@makeup_product.each do |m|%>
-<%=m.name%>
-<%=m.purpose%>
-<%=m.waterproof%>
+
+<br>
+<br>
+Name:<%=@makeup_product.name%><br>
+Purpose:<%=@makeup_product.purpose%><br>
+Waterproof: <%=@makeup_product.waterproof%><br>
+
+
 <%=link_to 'Write Review', new_review_path%>
-<%end%>

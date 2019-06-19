@@ -1,3 +1,4 @@
+require 'pry'
 class MakeupProductsController < ApplicationController
   def new
     @makeup_product = MakeupProduct.new
