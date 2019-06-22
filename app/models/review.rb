@@ -1,4 +1,4 @@
 class Review < ApplicationRecord
   belongs_to :user
-  belongs_to :makeup_product
+  belongs_to :makeup
 end

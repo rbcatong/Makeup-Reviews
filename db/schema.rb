@@ -16,13 +16,12 @@ ActiveRecord::Schema.define(version: 2019_06_17_230036) do
     t.string "name"
     t.string "purpose"
     t.boolean "waterproof"
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer "makeup_products_id"
+    t.integer "makeup_id"
     t.integer "user_id"
     t.integer "rating"
     t.string "title"
