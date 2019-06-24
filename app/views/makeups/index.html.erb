@@ -1,5 +1,5 @@
-<%@makeup.each do |m|%>
+<%@makeups.each do |m|%>
 <ul>
-<%=link_to "#{m.name}", makeup_product_path(m.id)%>
+<%=link_to "#{m.name}", makeup_path(m.id)%>
 </ul>
 <%end%>

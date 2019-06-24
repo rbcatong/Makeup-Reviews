@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
 
   def new
+    @review = Review.new
   end
 
   def create
@@ -9,6 +10,11 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = Review.all
+  end
+
+private
+
+  def review_params
   end
 
 end
