@@ -15,7 +15,7 @@
 <%=link_to 'Sign Up', new_user_path%></h2>
 
 <%if logged_in?%>
-<%= link_to 'Log Out', logout_path%>
+<%= link_to 'Log Out', logout_path%> <%= link_to 'Makeups', makeups_path%>
 <%end%>
 
       <% flash.each do |key, value| %>
