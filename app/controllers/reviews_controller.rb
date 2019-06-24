@@ -6,6 +6,9 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.create
+    binding.pry
+    @review.user_id = session.id
+    @review.makeup_id = makeup
   end
 
   def index

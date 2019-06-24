@@ -5,7 +5,7 @@ class MakeupsController < ApplicationController
   end
 
   def create
-    @makeup = Makeup.create
+    @makeup = Makeup.create(makeup_params)
     @makeup.user_id = session[:user_id]
     if @makeup.save
       redirect_to makeup_path(@makeup)
@@ -20,8 +20,8 @@ class MakeupsController < ApplicationController
     @makeup = Makeup.find_by(id: params[:id])
   end
 
-  # private
-  # # def makeup_params
-  #   params.require(:makeup).permit(:name, :purpose, :waterproof)
-  # end
+  private
+  def makeup_params
+    params.require(:makeup).permit(:name, :purpose,:waterproof)
+  end
 end
