@@ -5,7 +5,9 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.create(review_params)
+    binding.pry
+    @review = Review.new(review_params)
+    if @review.save
     @review.user_id = session.id
     binding.pry
     #attach the makeup with the review
