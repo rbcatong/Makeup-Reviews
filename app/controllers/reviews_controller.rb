@@ -5,6 +5,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
+    @makeup = Makeup.find(params[:product_id])
 
     @review = Review.new(review_params)
     #use the makeup id to write a review for that product
@@ -23,7 +24,7 @@ class ReviewsController < ApplicationController
 
 private
 def review_params
-  params.require(:review).permit(:title, :content, :rating)
+  params.require(:review).permit(:title, :content, :rating, :makeup_id).merge(:user_id => current_user.id)
 end
 
 end
