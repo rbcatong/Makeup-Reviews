@@ -5,13 +5,16 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    binding.pry
+
     @review = Review.new(review_params)
+    #use the makeup id to write a review for that product
+        binding.pry
     if @review.save
     @review.user_id = session.id
     binding.pry
     #attach the makeup with the review
-    @review.makeup_id = makeup.id
+    @review.makeup_id = Makeup.find_by(params[:id])
+    end
   end
 
   def index
@@ -20,7 +23,7 @@ class ReviewsController < ApplicationController
 
 private
 def review_params
-  params.require(:makeup).permit(:title, :content, :rating)
+  params.require(:review).permit(:title, :content, :rating)
 end
 
 end
