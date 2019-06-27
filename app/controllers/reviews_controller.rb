@@ -1,23 +1,21 @@
 class ReviewsController < ApplicationController
 
   def new
-    @review = Review.new
-    binding.pry
-    @makeup = Makeup.find_by(params[:id])
+    #creates emptrty review witgh makeup
+      @makeup = Makeup.find_by(params[:id])
+      @review = @makeup.reviews.new
+
   end
 
   def create
-    binding.pry
+    @makeup = Makeup.find_by(params[:id])
+    @review = @makeup.reviews.new(review_params)
 
-
-    @review = Review.new(review_params)
     #use the makeup id to write a review for that product
-        binding.pry
+
     if @review.save
-    @review.user_id = session.id
-    binding.pry
     #attach the makeup with the review
-    @review.makeup_id = Makeup.find_by(params[:id])
+  redirect_to makeup_reviews_path
     end
   end
 
