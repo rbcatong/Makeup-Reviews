@@ -1,5 +1,6 @@
 Review
-<%=form_for [@makeup, @review] do |f| %>
+<%=@makeup.name%>
+<%=form_for @review do |f| %>
 
 <%= f.label :title %>
 <%= f.text_field :title%><p>

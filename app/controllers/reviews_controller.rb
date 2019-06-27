@@ -2,10 +2,13 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
+    binding.pry
+    @makeup = Makeup.find_by(params[:id])
   end
 
   def create
-    @makeup = Makeup.find(params[:product_id])
+    binding.pry
+
 
     @review = Review.new(review_params)
     #use the makeup id to write a review for that product
