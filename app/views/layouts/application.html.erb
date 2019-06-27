@@ -11,12 +11,25 @@
 
   <body>
 <h1>Makeup Reviews</h1>
-<h2><%=link_to 'Log In', login_path%>
-<%=link_to 'Sign Up', new_user_path%></h2>
 
-<%if logged_in?%>
-<%= link_to 'Log Out', logout_path%> <%= link_to 'Makeups', makeups_path%>
+<%if !logged_in?%>
+<h2><%=link_to 'Sign Up', new_user_path%></h2>
 <%end%>
+
+<%if !logged_in?%>
+<li style="display:inline-block;"> <h4><%=link_to 'Log In', login_path%><br><h4> </li>
+  <%end%>
+
+  <%= link_to 'Makeups', makeups_path%>
+  <%if logged_in?%>
+  <li style="display:inline-block;"> <h4><%= link_to 'Log Out', logout_path%><p>
+    </li>
+<%end%>
+
+
+<h2><%if !logged_in?%>
+<%= link_to('Log in with Facebook!', '/auth/facebook') %>
+<%end%></h2>
 
       <% flash.each do |key, value| %>
          <div class="alert alert-<%= key %>"><%= value %></div>
