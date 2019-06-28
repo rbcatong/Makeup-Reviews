@@ -1,26 +1,30 @@
 class ReviewsController < ApplicationController
 
   def new
-    #creates emptrty review witgh makeup
-      @makeup = Makeup.find_by(params[:id])
+    #creates empty review with makeup
+      @makeup = Makeup.find_by(id: params[:makeup_id])
       @review = @makeup.reviews.new
-
   end
 
   def create
-    @makeup = Makeup.find_by(params[:id])
+    @makeup = Makeup.find_by(id: params[:makeup_id])
     @review = @makeup.reviews.new(review_params)
-
     #use the makeup id to write a review for that product
-
     if @review.save
-    #attach the makeup with the review
-  redirect_to makeup_reviews_path
+      @makeup.reviews << @review
+      redirect_to makeup_path(@makeup.id)
+    else
+      redirect_to new_makeup_review_path
     end
   end
 
   def index
     @reviews = Review.all
+  end
+
+  def show
+    @makeup = Makeup.find_by(params[:id])
+    @review = @makeup.reviews.find_by(params[:id])
   end
 
 private

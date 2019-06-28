@@ -1,7 +1,6 @@
-Review
-<%=@makeup.name%>
+<p>Review
 
-<%=form_for ([@makeup, @review]) do |f| %>
+<%=form_for [@makeup,@review] do |f| %>
 
 <%= f.label :title %>
 <%= f.text_field :title%><p>
@@ -9,7 +8,7 @@ Review
 <%= f.label :content %>
 <%= f.text_area :content%><p>
 
-  <% f.label :rating%>
+  Rating: <% f.label :rating%>
   <%= f.select :rating, ['5', '4', '3', '2', '1']%><p>
 
 <%= f.submit "Submit" %>
