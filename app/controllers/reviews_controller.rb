@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
     #use the makeup id to write a review for that product
     if @review.save
       @makeup.reviews << @review
-      redirect_to makeup_path(@makeup.id)
+      redirect_to makeup_review_path(@makeup)
     else
       redirect_to new_makeup_review_path
     end
@@ -20,11 +20,13 @@ class ReviewsController < ApplicationController
 
   def index
     @reviews = Review.all
+    #shows all reviews for makeup
   end
 
   def show
-    @makeup = Makeup.find_by(params[:id])
-    @review = @makeup.reviews.find_by(params[:id])
+    @makeup = Makeup.find_by(params[:makeup_id])
+    binding.pry
+    @reviews = @makeup.reviews
   end
 
 private
