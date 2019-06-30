@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
     @review = @makeup.reviews.new(review_params)
     #use the makeup id to write a review for that product
     if @review.save
-      @makeup.reviews << @review
+      # @makeup.reviews << @review
       redirect_to makeup_review_path(@makeup)
     else
       redirect_to new_makeup_review_path

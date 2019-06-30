@@ -1,5 +1,8 @@
 <%@reviews.each do |r|%>
 <ul>
-  <%=link_to "#{r.title}", makeup_review_path(r.id)%>
+  <%=r.title%><p>
+  <%=r.content%>
+  <p>
+  <p>
 </ul>
 <%end%>
