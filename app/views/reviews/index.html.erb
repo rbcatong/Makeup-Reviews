@@ -2,10 +2,10 @@
 <%@reviews.each do |r|%>
 
 <ul>
-  <%=r.title%><p>
-  <%=r.content%>
-  <%binding.pry%>
-<%# <% user = User.find_by(id: r.id) %> %>
+  Title:<%=r.title%> <p>
+  Content:<%=r.content%><p>
+  <%@user = User.find_by(id: r.user_id)%>
+  By:<%=@user.username%><p><br>
   <p>
   <p>
 </ul>
