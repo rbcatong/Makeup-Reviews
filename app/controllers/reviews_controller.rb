@@ -25,7 +25,6 @@ class ReviewsController < ApplicationController
 
   def show
     @makeup = Makeup.find_by(params[:makeup_id])
-    binding.pry
     @reviews = @makeup.reviews
   end
 

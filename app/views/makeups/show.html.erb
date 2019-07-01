@@ -5,5 +5,7 @@ Name:<%=@makeup.name%><br>
 Purpose:<%=@makeup.purpose%><br>
 Waterproof: <%=@makeup.waterproof%><br>
 
+ <%=link_to 'Reviews', makeup_reviews_path(@makeup.id)%>
+
 
 <%=link_to 'Write Review', new_makeup_review_path(@makeup)%>

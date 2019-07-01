@@ -1,7 +1,11 @@
+
 <%@reviews.each do |r|%>
+
 <ul>
   <%=r.title%><p>
   <%=r.content%>
+  <%binding.pry%>
+<%# <% user = User.find_by(id: r.id) %> %>
   <p>
   <p>
 </ul>
