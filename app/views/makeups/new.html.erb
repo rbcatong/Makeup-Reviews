@@ -1,8 +1,11 @@
-Makeup Product Form
+<br><h3>Makeup Product Form</h3>
 <%=form_for @makeup do |f| %>
 
 <%= f.label :name %>
 <%= f.text_field :name%><p>
+
+  <%= f.label :category%>
+  <%= f.text_field :category%><p>
 
 <%= f.label :purpose %>
 <%= f.text_area :purpose%><p>

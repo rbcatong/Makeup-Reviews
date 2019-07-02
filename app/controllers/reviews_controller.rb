@@ -24,8 +24,11 @@ class ReviewsController < ApplicationController
   end
 
   def show
-    @makeup = Makeup.find_by(params[:makeup_id])
+    @makeup = Makeup.find_by(id: params[:makeup_id])
     @reviews = @makeup.reviews
+  end
+
+  def update
   end
 
 private

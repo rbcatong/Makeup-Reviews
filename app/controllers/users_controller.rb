@@ -25,8 +25,9 @@ class UsersController < ApplicationController
   end
 
   def index
-    @user = User.find(params[:id])
-    @reviews = @user.reviews
+    # binding.pry
+    # @user = User.find_by(id: params[:id])
+    # @reviews = @user.reviews
   end
 
     private
