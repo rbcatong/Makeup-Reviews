@@ -5,7 +5,11 @@
   Title:<%=r.title%> <p>
   Content:<%=r.content%><p>
   <%@user = User.find_by(id: r.user_id)%>
-  By:<%=@user.username%><p><br>
+  By:<%=@user.username%><p>
+    Skintype:<%=@user.skintype%>
+    <br>
+    <br>
+    <br>
   <p>
   <p>
 </ul>
