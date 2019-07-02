@@ -11,5 +11,8 @@
   Rating: <% f.label :rating%>
   <%= f.select :rating, ['5', '4', '3', '2', '1']%><p>
 
+    <% f.label :recommendation%>
+    Recommendation: <%= f.check_box :recommendation %> <br />
+
 <%= f.submit "Submit" %>
 <%end%>

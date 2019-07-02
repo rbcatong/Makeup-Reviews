@@ -22,6 +22,6 @@ class MakeupsController < ApplicationController
 
   private
   def makeup_params
-    params.require(:makeup).permit(:name, :purpose,:waterproof,:category,:recommendation)
+    params.require(:makeup).permit(:name, :purpose,:waterproof,:category)
   end
 end
