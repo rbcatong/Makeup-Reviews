@@ -9,10 +9,13 @@ class ReviewsController < ApplicationController
   def create
     @makeup = Makeup.find_by(id: params[:makeup_id])
     @review = @makeup.reviews.new(review_params)
+    @user = User.find_by(id: @review.user_id)
     #use the makeup id to write a review for that product
     if @review.save
-      # @makeup.reviews << @review
-      redirect_to makeup_review_path(@makeup)
+      @user.increment(:points,  10)
+      @user.save
+    @makeup.reviews << @review
+      redirect_to makeup_review_path(@makeup.id)
     else
       redirect_to new_makeup_review_path
     end
