@@ -12,8 +12,7 @@ class ReviewsController < ApplicationController
     @user = User.find_by(id: @review.user_id)
     #use the makeup id to write a review for that product
     if @review.save
-      flash[:success] = "Thank you for writing the review."
-      @user.increment(:points,  10)
+      @user.increment(:points, 10)
       @user.save
       redirect_to makeup_review_path(@makeup.id)
     else

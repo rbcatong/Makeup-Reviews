@@ -6,13 +6,13 @@
 <%= f.text_field :title%><p>
 
 <%= f.label :content %>
-<%= f.text_area :content, maxlength: 20%><p>
+<%= f.text_area :content, minlength: 20%><p>
 
   Rating: <% f.label :rating%>
   <%= f.select :rating, ['5', '4', '3', '2', '1']%><p>
 
-    <% f.label :recommendation%>
-    Recommendation: <%= f.check_box :recommendation %> <br />
+  <% f.label :recommendation%>
+  Recommendation: <%= f.check_box :recommendation %> <br />
 
 <%= f.submit "Submit" %>
 <%end%>
