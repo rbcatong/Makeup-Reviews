@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to user_path(@user)
+      redirect_to user_path(@user.id)
     else
       flash[:error] = "Username has been used."
       redirect_to new_user_path
@@ -19,8 +19,12 @@ class UsersController < ApplicationController
   end
 
   def show
-    binding.pry
-    @user = User.find_by(id: params[:user_id])
+    @user = User.find_by(id: params[:id])
+  end
+
+  def index
+    @user = User.find(params[:id])
+    @reviews = @user.reviews
   end
 
     private
