@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2019_07_02_172022) do
     t.string "email"
     t.string "image"
     t.string "uid"
-    t.integer "points"
+    t.integer "points", default: 0
   end
 
 end
