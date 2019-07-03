@@ -11,7 +11,9 @@ class ReviewsController < ApplicationController
     @review = @makeup.reviews.new(review_params)
     @user = User.find_by(id: @review.user_id)
     #use the makeup id to write a review for that product
+
     if @review.save
+
       @user.increment(:points, 10)
       @user.save
       redirect_to makeup_review_path(@makeup.id, @review.id)
@@ -21,7 +23,8 @@ class ReviewsController < ApplicationController
   end
 
   def index
-    @reviews = Review.all
+    @makeup = Makeup.find_by(id: params[:makeup_id])
+    @reviews = @makeup.reviews
     #shows all reviews for makeup
   end
 
@@ -31,11 +34,12 @@ class ReviewsController < ApplicationController
   end
 
   def update
+    # -- if user is logged in allows them to only edit their reviews. also allow users to see other makeup
   end
 
 private
 def review_params
-  params.require(:review).permit(:title, :content, :rating, :makeup_id,:recommendation).merge(:user_id => current_user.id)
+  params.require(:review).permit(:title, :content, :rating, :makeup_id).merge(:user_id => current_user.id)
 end
 
 end

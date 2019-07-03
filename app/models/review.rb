@@ -4,8 +4,16 @@ class Review < ApplicationRecord
 
   validates :content,
   presence: true,
-  length: {maximum: 20},
+  length: {minimum: 20},
   on: :create,
   allow_nil: false
+
+  def recommendation_name
+    if self.recommendation == true
+      return "Yes"
+    else
+      return "No"
+    end
+  end
 
 end
