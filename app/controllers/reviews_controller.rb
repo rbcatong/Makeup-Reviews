@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
     if @review.save
       @user.increment(:points, 10)
       @user.save
-      redirect_to makeup_review_path(@makeup.id)
+      redirect_to makeup_review_path(@makeup.id, @review.id)
     else
       redirect_to new_makeup_review_path
     end
@@ -27,7 +27,7 @@ class ReviewsController < ApplicationController
 
   def show
     @makeup = Makeup.find_by(id: params[:makeup_id])
-    @reviews = @makeup.reviews
+    @review = Review.find_by(id: params[:id])
   end
 
   def update
