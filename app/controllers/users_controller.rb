@@ -7,6 +7,8 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+
+
   def create
     @user = User.new(user_params)
 
@@ -24,6 +26,7 @@ class UsersController < ApplicationController
   end
 
   def index
+    @user_reviews = current_user.reviews
     # binding.pry
     # @user = User.find_by(id: params[:id])
     # @reviews = @user.reviews
