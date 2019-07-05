@@ -13,9 +13,9 @@ class ReviewsController < ApplicationController
     #use the makeup id to write a review for that product
 
     if @review.save
-
       @user.increment(:points, 10)
       @user.save
+      flash[:success] = "Thank you for reviewing. The review will be posted momentarily."
       redirect_to makeup_review_path(@makeup.id, @review.id)
     else
       redirect_to new_makeup_review_path
