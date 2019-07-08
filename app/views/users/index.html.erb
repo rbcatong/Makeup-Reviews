@@ -1,3 +1,8 @@
 <% @user_reviews.each do |review|%>
-<%=review.title%>
+<br><p>
+Title:<b><%=review.title%></b><br>
+Content:<%=review.content%><br>
+Rating:<%=review.rating%><br>
+<%= link_to 'Edit this Review', edit_makeup_review_path(:makeup_id,:id)%>
+
 <%end%>
