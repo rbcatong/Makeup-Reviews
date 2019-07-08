@@ -41,6 +41,10 @@
   <%= link_to 'Makeups', makeups_path%>
   <%end%>
 
+  <%if logged_in?%>
+    <%= link_to 'Reviews', user_reviews_path(:id)%>
+    <%end%>
+
       <% flash.each do |key, value| %>
          <div class="alert alert-<%= key %>"><%= value %></div>
        <% end %>

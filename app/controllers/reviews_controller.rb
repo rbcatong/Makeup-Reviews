@@ -23,8 +23,9 @@ class ReviewsController < ApplicationController
   end
 
   def index
+    binding.pry
     @makeup = Makeup.find_by(id: params[:makeup_id])
-    @reviews = @makeup.reviews
+    @reviews = makeup.reviews
     #shows all reviews for makeup
   end
 
