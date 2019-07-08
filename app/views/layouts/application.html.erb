@@ -42,7 +42,7 @@
   <%end%>
 
   <%if logged_in?%>
-    <%= link_to 'Reviews', user_reviews_path(:id)%>
+    <%= link_to 'Reviews', user_reviews_path%>
     <%end%>
 
       <% flash.each do |key, value| %>
