@@ -34,13 +34,13 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    # @makeup = Makeup.find_by(id: params[:makeup_id])
-
     # -- if user is logged in allows them to only edit their reviews. also allow users to see other makeup
-    # @review = Review.find_by(id: params[:id])
+     @review = Review.find_by(id: params[:id])
   end
 
   def update
+    @review = Review.find(params[:id])
+    @review.update(title: params[:review][:title], content: params[:review][:content])
   end
 
 private
