@@ -23,7 +23,6 @@ class ReviewsController < ApplicationController
   end
 
   def index
-
     @makeup = Makeup.find_by(id: params[:makeup_id])
     @reviews = @makeup.reviews
     #shows all reviews for makeup
@@ -35,9 +34,13 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    binding.pry
+    # @makeup = Makeup.find_by(id: params[:makeup_id])
+
     # -- if user is logged in allows them to only edit their reviews. also allow users to see other makeup
     # @review = Review.find_by(id: params[:id])
+  end
+
+  def update
   end
 
 private

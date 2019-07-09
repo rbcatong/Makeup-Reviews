@@ -3,6 +3,6 @@
 Title:<b><%=review.title%></b><br>
 Content:<%=review.content%><br>
 Rating:<%=review.rating%><br>
-<%= link_to 'Edit this Review', edit_makeup_review_path(:makeup_id,:id)%>
+<%= link_to 'Edit this Review', edit_makeup_review_path(review.makeup_id, review.id)%>
 
 <%end%>
