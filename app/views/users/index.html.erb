@@ -5,6 +5,7 @@ Makeup: <b><i><%=makeup.name%></b></i><br>
 Title:<b><%=review.title%></b><br>
 Content:<%=review.content%><br>
 Rating:<%=review.rating%><br>
+Recommendation:<%=review.recommendation%><br>
 <%= link_to 'Edit this Review', edit_makeup_review_path(review.makeup_id, review.id)%>
 
 <%end%>

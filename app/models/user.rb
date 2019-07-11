@@ -9,7 +9,6 @@ class User < ApplicationRecord
 
   def status_update
     if self.points >= 100
-      binding.pry
       return "Expert"
     else
       return "Beginner"

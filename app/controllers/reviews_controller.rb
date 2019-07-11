@@ -39,7 +39,6 @@ class ReviewsController < ApplicationController
   end
 
   def update
-
     @review = Review.find(params[:id])
     @review.update(title: params[:review][:title], content: params[:review][:content])
     redirect_to user_reviews_path
