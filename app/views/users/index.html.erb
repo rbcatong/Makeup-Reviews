@@ -1,5 +1,7 @@
 <% @user_reviews.each do |review|%>
 <br><p>
+  <%makeup = Makeup.find(review.makeup_id)%><br>
+Makeup: <b><i><%=makeup.name%></b></i><br>
 Title:<b><%=review.title%></b><br>
 Content:<%=review.content%><br>
 Rating:<%=review.rating%><br>

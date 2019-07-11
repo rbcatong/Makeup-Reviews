@@ -7,10 +7,14 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
 
 
-  # def self.status_update
-  #     @user.increment(:points, 10)
-  #     if user has number points - change status
-  # end
+  def status_update
+    if self.points >= 100
+      binding.pry
+      return "Expert"
+    else
+      return "Beginner"
+    end
+  end
 
   # scope method
   # def self.point_level

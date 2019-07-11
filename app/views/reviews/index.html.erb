@@ -2,6 +2,7 @@
 <%@reviews.each do |r|%>
 
 <ul>
+
   Title:<%=r.title%> <p>
   Content:<%=r.content%><p>
   <%@user = User.find_by(id: r.user_id)%>
