@@ -28,6 +28,10 @@ class UsersController < ApplicationController
     @user_reviews = current_user.reviews
   end
 
+  def topinfluencers
+    @users = User.order("points DESC")
+
+  end
     private
 
     def user_params

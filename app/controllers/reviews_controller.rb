@@ -45,7 +45,6 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-
     @makeup = Makeup.find(params[:makeup_id])
     @review = @makeup.reviews.find(params[:id])
     @review.destroy
