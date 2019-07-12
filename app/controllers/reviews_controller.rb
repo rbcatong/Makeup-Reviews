@@ -40,13 +40,13 @@ class ReviewsController < ApplicationController
 
   def update
     @review = Review.find(params[:id])
-    @review.update(title: params[:review][:title], content: params[:review][:content], rating: params[:review][:rating])
+    @review.update(title: params[:review][:title], content: params[:review][:content], rating: params[:review][:rating], recommendation: params[:review][:recommendation])
     redirect_to user_reviews_path
   end
 
 private
 def review_params
-  params.require(:review).permit(:title, :content, :rating, :makeup_id).merge(:user_id => current_user.id)
+  params.require(:review).permit(:title, :content, :rating, :makeup_id, :recommendation).merge(:user_id => current_user.id)
 end
 
 end
