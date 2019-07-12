@@ -12,4 +12,5 @@ end
   get '/user/reviews', to: 'users#index'
   get '/auth/facebook/callback' => 'sessions#facebook_login'
   patch '/reviews/:id', to: 'reviews#update'
+  delete '/reviews/:id', to: 'reviews#delete'
 end

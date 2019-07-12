@@ -44,6 +44,16 @@ class ReviewsController < ApplicationController
     redirect_to user_reviews_path
   end
 
+  def destroy
+
+    @makeup = Makeup.find(params[:makeup_id])
+    @review = @makeup.reviews.find(params[:id])
+    @review.destroy
+
+    redirect_to user_reviews_path
+  end
+
+
 private
 def review_params
   params.require(:review).permit(:title, :content, :rating, :makeup_id, :recommendation).merge(:user_id => current_user.id)

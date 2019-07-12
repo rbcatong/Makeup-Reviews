@@ -12,7 +12,6 @@
     <% f.label :recommendation%>
     Recommendation: <%= f.check_box :recommendation %> <br />
 
-
-
   <%= f.submit "Edit Review" %>
+  <%= link_to 'Delete Review', article_comment(article, comment) %>
 <% end %>

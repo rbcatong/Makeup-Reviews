@@ -7,5 +7,8 @@ Content:<%=review.content%><br>
 Rating:<%=review.rating%><br>
 Recommendation:<%=review.recommendation%><br>
 <%= link_to 'Edit this Review', edit_makeup_review_path(review.makeup_id, review.id)%>
+  <%= link_to 'Delete Review', makeup_review_path(review.makeup_id, review.id),
+                                                        method: :delete,
+                                                      data: { confirm: 'Are you sure?'}%>
 
 <%end%>
