@@ -1,0 +1,11 @@
+<%= form_for @user do |f| %>
+
+<%= f.label :bio  %>
+<%= f.text_area :bio%><p>
+
+<% f.label :skintype%>
+Skintype:  <%= f.select :skintype, ['dry', 'combination', 'oily']%><p>
+
+  <%= f.submit "Edit Profile" %>
+
+<% end %>

@@ -30,8 +30,15 @@ class UsersController < ApplicationController
 
   def topinfluencers
     @users = User.order("points DESC")
-
   end
+
+  def edit
+    @user = current_user.id
+  end
+
+  def update
+  end
+
     private
 
     def user_params
