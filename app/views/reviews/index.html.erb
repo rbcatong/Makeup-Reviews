@@ -3,11 +3,10 @@
 
 <ul>
 
-  Title:<%=r.title%> <p>
-  Content:<%=r.content%><p>
-  <%@user = User.find_by(id: r.user_id)%>
-  By:<%=@user.username%><p>
-    Skintype:<%=@user.skintype%>
+  <b>Title:</b> <%=r.title%> <p>
+  <b>Content:</b> <%=r.content%><p>
+  <b>By:</b> <%=r.user.username%><p>
+  <b>Skintype:</b> <%=r.user.skintype%>
     <br>
     <br>
     <br>

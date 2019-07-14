@@ -13,10 +13,12 @@ class MakeupsController < ApplicationController
   end
 
   def index
+    #showing the list of all the makeups
     @makeups = Makeup.all
   end
 
   def show
+    #showing each individual makeup
     @makeup = Makeup.find_by(id: params[:id])
   end
 
