@@ -1,5 +1,8 @@
 # README
 
+This is an application in which you can add makeup products and review them among users!
+You may create an account or log in via Facebook. Enjoy!
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
