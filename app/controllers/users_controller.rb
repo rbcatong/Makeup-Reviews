@@ -40,7 +40,7 @@ class UsersController < ApplicationController
 
 
     def topinfluencers
-      @users = User.order("points DESC")
+      @users = User.top_points
     end
 
 

@@ -49,6 +49,11 @@
       <%= link_to 'Top Reviews', topreviews_path%>
       <%end%>
 
+      <%if logged_in?%>
+<%=link_to 'New Makeup Product', new_makeup_path%>
+<%end%>
+
+
 
 
       <% flash.each do |key, value| %>

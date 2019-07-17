@@ -52,7 +52,7 @@ class ReviewsController < ApplicationController
 
 
   def topreviews
-    @topreviews = Review.where("rating = 5")
+    @topreviews = Review.top_reviews
   end
 
 private

@@ -5,6 +5,8 @@ class User < ApplicationRecord
 
   has_secure_password
   validates :username, presence: true, uniqueness: true
+  
+  scope :top_points, -> {User.order("points DESC")}
 
 
   def status_update
