@@ -1,0 +1,8 @@
+
+
+<%@topreviews.each do |review|%><br>
+<%makeup = Makeup.find(review.makeup_id)%><br>
+Makeup: <%=makeup.name%><br>
+Title:<%=review.title%><br>
+Content: <%=review.content%><br>
+<%end%>

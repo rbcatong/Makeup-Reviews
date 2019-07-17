@@ -45,6 +45,12 @@
     <%= link_to 'Reviews', user_reviews_path%>
     <%end%>
 
+    <%if logged_in?%>
+      <%= link_to 'Top Reviews', topreviews_path%>
+      <%end%>
+
+
+
       <% flash.each do |key, value| %>
          <div class="alert alert-<%= key %>"><%= value %></div>
        <% end %>

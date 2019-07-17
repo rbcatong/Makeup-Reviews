@@ -52,7 +52,6 @@ class ReviewsController < ApplicationController
 
 
   def topreviews
-    binding.pry
     @topreviews = Review.where("rating = 5")
   end
 
