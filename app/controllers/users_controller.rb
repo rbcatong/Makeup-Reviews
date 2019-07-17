@@ -28,10 +28,6 @@ class UsersController < ApplicationController
     @user_reviews = current_user.reviews
   end
 
-  def topinfluencers
-    @users = User.order("points DESC")
-  end
-
   def edit
     @user = current_user
   end
@@ -41,6 +37,13 @@ class UsersController < ApplicationController
     @user = User.update(bio: params[:user][:bio], skintype: params[:user][:skintype])
     redirect_to user_path
   end
+
+
+    def topinfluencers
+      @users = User.order("points DESC")
+    end
+
+
 
     private
 

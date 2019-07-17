@@ -11,7 +11,6 @@ class ReviewsController < ApplicationController
     @review = @makeup.reviews.new(review_params)
     @user = User.find_by(id: @review.user_id)
     #use the makeup id to write a review for that product
-
     if @review.save
       @user.increment(:points, 10)
       @user.save
@@ -48,10 +47,14 @@ class ReviewsController < ApplicationController
     @makeup = Makeup.find(params[:makeup_id])
     @review = @makeup.reviews.find(params[:id])
     @review.destroy
-
     redirect_to user_reviews_path
   end
 
+
+  def topreviews
+    binding.pry
+    @topreviews = Review.where("rating = 5")
+  end
 
 private
 def review_params
