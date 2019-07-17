@@ -1,8 +1,10 @@
 
 
 <%@topreviews.each do |review|%><br>
-<%makeup = Makeup.find(review.makeup_id)%><br>
-Makeup: <%=makeup.name%><br>
-Title:<%=review.title%><br>
-Content: <%=review.content%><br>
+<%makeup = Makeup.find(review.makeup_id)%>
+<%user = User.find(review.user_id)%><br>
+<b> Makeup:</b> <%=makeup.name%><br>
+<b> Title:</b> <%=review.title%><br>
+<b> Content: </b> <%=review.content%><br>
+<b> User: </b> <%=user.username%>
 <%end%>
