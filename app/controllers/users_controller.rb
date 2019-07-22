@@ -1,13 +1,10 @@
 class UsersController < ApplicationController
   def home
-
   end
 
   def new
     @user = User.new
   end
-
-
 
   def create
     @user = User.new(user_params)
@@ -21,7 +18,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: params[:id])
+    if current_user == @user = User.find_by(id: params[:id])
+  else
+    redirect_to '/'
+    end
   end
 
   def index
@@ -38,12 +38,9 @@ class UsersController < ApplicationController
     redirect_to user_path
   end
 
-
     def topinfluencers
       @users = User.top_points
     end
-
-
 
     private
 
