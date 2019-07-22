@@ -13,11 +13,12 @@ class UsersController < ApplicationController
       redirect_to user_path(@user.id)
     else
       flash[:error] = "Username has been used."
-      redirect_to new_user_path
+      render :new
     end
   end
 
   def show
+    #doesnt allow other users to see other user profile page and edit it
     if current_user == @user = User.find_by(id: params[:id])
   else
     redirect_to '/'
