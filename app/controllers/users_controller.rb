@@ -3,10 +3,12 @@ class UsersController < ApplicationController
   end
 
   def new
+    #get method for the new user form
     @user = User.new
   end
 
   def create
+    #post method for processing the form.
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
@@ -26,10 +28,12 @@ class UsersController < ApplicationController
   end
 
   def index
+    #only shows the current users reviews
     @user_reviews = current_user.reviews
   end
 
   def edit
+    #finds the user by using current user method
     @user = current_user
   end
 
