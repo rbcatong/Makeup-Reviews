@@ -3,10 +3,11 @@ class Review < ApplicationRecord
   belongs_to :makeup
   scope :top_reviews, -> {Review.where("rating = 5")}
 
+
+
   validates :content,
   presence: true,
   length: {minimum: 20},
-  on: :create,
   allow_nil: false
 
   def recommendation_name

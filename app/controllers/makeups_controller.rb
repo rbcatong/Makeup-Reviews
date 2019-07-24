@@ -5,7 +5,7 @@ class MakeupsController < ApplicationController
   end
 
   def create
-    @makeup = Makeup.create(makeup_params)
+    @makeup = Makeup.new(makeup_params)
     @makeup.user_id = session[:user_id]
     if @makeup.save
       redirect_to makeup_path(@makeup)
