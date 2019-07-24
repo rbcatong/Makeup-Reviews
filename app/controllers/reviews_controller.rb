@@ -9,13 +9,13 @@ class ReviewsController < ApplicationController
   def create
     @makeup = Makeup.find_by(id: params[:makeup_id])
     @review = @makeup.reviews.new(review_params)
-    @user = User.find_by(id: @review.user_id)
+    @user = User.find_by(id: @review.user_id) #to increment the user.
     #use the makeup id to write a review for that product
     if @review.save
       @user.increment(:points, 10)
       @user.save
       flash[:success] = "Thank you for reviewing. The review will be posted momentarily."
-      redirect_to makeup_review_path(@makeup.id, @review.id)
+       redirect_to makeup_review_path(@makeup.id,@review.id)
     else
       redirect_to new_makeup_review_path
     end
@@ -29,6 +29,8 @@ class ReviewsController < ApplicationController
 
   def show
     @makeup = Makeup.find_by(id: params[:makeup_id])
+    # binding.pry
+    # @makeup.reviews
     @review = Review.find_by(id: params[:id])
   end
 
