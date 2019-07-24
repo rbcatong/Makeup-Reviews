@@ -39,8 +39,9 @@ before_action :require_login
   end
 
   def update
-        @review = Review.find(params[:id])
-    if current_user == @review.user_id
+      @review = Review.find(params[:id])
+
+    if current_user.id == @review.user_id
       @review.update(title: params[:review][:title], content: params[:review][:content], rating: params[:review][:rating], recommendation: params[:review][:recommendation])
       redirect_to user_reviews_path
     else
