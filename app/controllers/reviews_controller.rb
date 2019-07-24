@@ -50,7 +50,6 @@ class ReviewsController < ApplicationController
     redirect_to user_reviews_path
   end
 
-
   def topreviews
     @topreviews = Review.top_reviews
   end
