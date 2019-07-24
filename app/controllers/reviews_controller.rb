@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+before_action :require_login
 
   def new
     #creates empty review with makeup
@@ -29,20 +30,23 @@ class ReviewsController < ApplicationController
 
   def show
     @makeup = Makeup.find_by(id: params[:makeup_id])
-    # binding.pry
-    # @makeup.reviews
     @review = Review.find_by(id: params[:id])
   end
 
   def edit
     # -- if user is logged in allows them to only edit their reviews. also allow users to see other makeup
-     @review = Review.find_by(id: params[:id])
+    @review = Review.find_by(id: params[:id])
   end
 
   def update
-    @review = Review.find(params[:id])
-    @review.update(title: params[:review][:title], content: params[:review][:content], rating: params[:review][:rating], recommendation: params[:review][:recommendation])
-    redirect_to user_reviews_path
+        @review = Review.find(params[:id])
+    if current_user == @review.user_id
+      @review.update(title: params[:review][:title], content: params[:review][:content], rating: params[:review][:rating], recommendation: params[:review][:recommendation])
+      redirect_to user_reviews_path
+    else
+      flash[:error] = "You are not authorized."
+    redirect_to '/'
+    end
   end
 
   def destroy
@@ -59,6 +63,12 @@ class ReviewsController < ApplicationController
 private
 def review_params
   params.require(:review).permit(:title, :content, :rating, :makeup_id, :recommendation).merge(:user_id => current_user.id)
+end
+
+
+
+def require_login
+  return head(:forbidden) unless session.include? :user_id
 end
 
 end
