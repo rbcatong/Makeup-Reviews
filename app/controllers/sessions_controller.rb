@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to user_path(user.id)
     else
-     flash[:error] = "Sorry, we could not find the combination, try again or" link_to
+     flash[:error] = "Sorry, we could not find the combination, try again or #{view_context.link_to("signup", new_user_path)}" 
       redirect_to login_path
     end
   end
