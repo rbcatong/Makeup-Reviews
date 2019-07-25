@@ -14,7 +14,6 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user.id)
     else
-      flash[:error] = "Username has been used."
       render :new
     end
   end
