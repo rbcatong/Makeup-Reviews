@@ -6,9 +6,12 @@ class MakeupsController < ApplicationController
 
   def create
     @makeup = Makeup.new(makeup_params)
-    @makeup.user_id = session[:user_id]
     if @makeup.save
+      @makeup.user_id = session[:user_id]
       redirect_to makeup_path(@makeup)
+    else
+      flash[:error] = "Please make sure all fields are filled."
+      render :new
     end
   end
 

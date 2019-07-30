@@ -57,9 +57,9 @@
 
 <% flash.each do |name, msg| %>
   <div class="alert alert-<%= name %>">
-    <a class="close" data-dismiss="alert">&#215</a>
+    <a class="close" data-dismiss="alert"></a>
     <% if msg.is_a?(String) %>
-      <div id="flash_<%= name %>"> <%= sanitize(msg) %> </div>
+    <b> <h2> <div id="flash_<%= name %>"> <%= sanitize(msg) %> </b> </h2> </div>
     <% end %>
   </div>
 <% end %>
