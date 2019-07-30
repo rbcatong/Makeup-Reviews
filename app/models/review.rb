@@ -4,6 +4,7 @@ class Review < ApplicationRecord
   scope :top_reviews, -> {Review.where("rating = 5")}
 
 
+  validates :title, presence: true
 
   validates :content,
   presence: true,
