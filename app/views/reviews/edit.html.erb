@@ -1,4 +1,4 @@
-<br><br>Makeup:<b>
+<br><br>Makeup: <b><%=@review.makeup.name%></b>
 
   <% if @review.errors.any? %>
   <div id="error_explanation">
@@ -16,6 +16,7 @@
 <% end %>
 
 <%= form_for [@review.makeup, @review] do |f| %>
+<p>
   <%= f.label 'Title' %><br>
   <%= f.text_field :title %><br>
 

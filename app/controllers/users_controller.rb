@@ -20,7 +20,8 @@ class UsersController < ApplicationController
 
   def show
     #doesnt allow other users to see other user profile page and edit it
-    if current_user == @user = User.find_by(id: params[:id])
+    @user = User.find_by(id: params[:id])
+    if current_user == @user
   else
     redirect_to user_path(current_user.id)
     end
