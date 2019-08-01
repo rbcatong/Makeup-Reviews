@@ -18,7 +18,7 @@ before_action :require_login
       flash[:success] = "Thank you for reviewing. The review will be posted momentarily."
        redirect_to makeup_review_path(@makeup.id,@review.id)
     else
-      redirect_to new_makeup_review_path
+      render :new
     end
   end
 
