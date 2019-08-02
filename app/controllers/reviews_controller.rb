@@ -28,8 +28,6 @@ before_action :require_login
     #shows all reviews for makeup
   end
 
-
-
   def show
     @makeup = Makeup.find_by(id: params[:makeup_id])
     @review = Review.find_by(id: params[:id])
