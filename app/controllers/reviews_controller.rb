@@ -28,6 +28,8 @@ before_action :require_login
     #shows all reviews for makeup
   end
 
+
+
   def show
     @makeup = Makeup.find_by(id: params[:makeup_id])
     @review = Review.find_by(id: params[:id])
@@ -41,12 +43,9 @@ before_action :require_login
   end
 
   def update
-
       @review = Review.find(params[:id])
-
        if @review.update(title: params[:review][:title], content: params[:review][:content], rating: params[:review][:rating], recommendation: params[:review][:recommendation])
         redirect_to user_reviews_path
-         binding.pry
       else
         render :edit
       end
