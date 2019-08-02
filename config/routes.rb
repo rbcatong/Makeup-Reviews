@@ -10,7 +10,10 @@ end
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get  '/logout', to: 'sessions#destroy'
-  get '/user/reviews', to: 'users#index'
+
+  # get '/user/reviews', to: 'users#index'
+  match '/users/:id/reviews', to: 'users#index', via: 'get', :as => 'user_reviews'
+
   get '/auth/facebook/callback' => 'sessions#facebook_login'
   get '/topinfluencers' => 'users#topinfluencers'
   get '/topreviews' => 'reviews#topreviews'
