@@ -60,6 +60,8 @@ before_action :require_login
   end
 
   def averageproducts
+    
+    @makeups = Makeup.all
     @averageproducts = Review.averageproducts
   end
 

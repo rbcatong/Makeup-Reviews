@@ -42,6 +42,10 @@
   <%end%>
 
   <%if logged_in?%>
+    <%= link_to 'Average Rating',averageproducts_path%>
+    <%end%>
+
+  <%if logged_in?%>
     <%= link_to 'My Reviews', user_reviews_path(current_user.id)%>
     <%end%>
 
