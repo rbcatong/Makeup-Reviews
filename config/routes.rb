@@ -17,6 +17,7 @@ end
   get '/auth/facebook/callback' => 'sessions#facebook_login'
   get '/topinfluencers' => 'users#topinfluencers'
   get '/topreviews' => 'reviews#topreviews'
+  get '/averageproducts' => 'reviews#averageproducts'
   patch '/reviews/:id', to: 'reviews#update'
   delete '/reviews/:id', to: 'reviews#delete'
 end

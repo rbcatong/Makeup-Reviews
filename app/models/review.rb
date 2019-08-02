@@ -20,4 +20,13 @@ class Review < ApplicationRecord
     end
   end
 
+
+    def self.averageproducts
+      self.average(:rating).to_f
+    end
+
+
+
+
+
 end

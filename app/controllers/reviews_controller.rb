@@ -36,7 +36,7 @@ before_action :require_login
   def edit
     # -- if user is logged in allows them to only edit their reviews. also allow users to see other makeup
     @review = Review.find_by(id: params[:id])
-    redirect_to user_reviews_path, alert: 'Not authorized' if current_user.id != @review.user_id
+    redirect_to user_reviews_path, alert: 'Not authorized' if !@review ||  current_user.id != @review.user_id
   end
 
   def update
@@ -57,6 +57,10 @@ before_action :require_login
 
   def topreviews
     @topreviews = Review.top_reviews
+  end
+
+  def averageproducts
+    @averageproducts = Review.averageproducts
   end
 
 

@@ -7,4 +7,9 @@ class Makeup < ApplicationRecord
   validates :category, presence: true
   validates :purpose, presence: true
 
+  def self.averageproducts
+    self.average(:review)
+  end
+
+
 end
