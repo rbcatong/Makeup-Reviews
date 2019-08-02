@@ -1,6 +1,6 @@
 <% @user_reviews.each do |review|%>
 <br><p>
-  <%makeup = Makeup.find(review.makeup_id)%><br>
+<%makeup = Makeup.find(review.makeup_id)%><br>
 Makeup: <b><i><%=makeup.name%></b></i><br>
 Title:<b><%=review.title%></b><br>
 Content:<%=review.content%><br>
@@ -10,5 +10,4 @@ Recommendation:<%=review.recommendation_name%><br>
 <%= link_to 'Delete Review', makeup_review_path(review.makeup_id, review.id),
                                                         method: :delete,
                                                       data: { confirm: 'Are you sure?'}%>
-
 <%end%>

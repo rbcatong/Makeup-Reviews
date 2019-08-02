@@ -39,23 +39,22 @@ before_action :require_login
     # -- if user is logged in allows them to only edit their reviews. also allow users to see other makeup
     @review = Review.find_by(id: params[:id])
     redirect_to user_reviews_path, alert: 'Not authorized' if current_user.id != @review.user_id
-
   end
 
   def update
       @review = Review.find(params[:id])
        if @review.update(title: params[:review][:title], content: params[:review][:content], rating: params[:review][:rating], recommendation: params[:review][:recommendation])
-        redirect_to user_reviews_path
+         flash[:success] = "You have edited the review."
+        redirect_to user_reviews_path(@review.user_id)
       else
         render :edit
       end
     end
 
   def destroy
-    @makeup = Makeup.find(params[:makeup_id])
-    @review = @makeup.reviews.find(params[:id])
+    @review = Review.find(params[:id])
     @review.destroy
-    redirect_to user_reviews_path
+    redirect_to user_reviews_path(@review.user_id)
   end
 
   def topreviews
