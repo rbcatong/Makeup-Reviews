@@ -1,4 +1,4 @@
-<% @user_reviews.each do |review|%>
+<% @reviews.each do |review|%>
 <br><p>
 <%makeup = Makeup.find(review.makeup_id)%><br>
 Makeup: <b><i><%=makeup.name%></b></i><br>

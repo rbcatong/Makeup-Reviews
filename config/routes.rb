@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'users#home'
-  resources :users
+  resources :users do
+    resources :reviews, only: [:index]
+  end
   resources :makeups do
       resources :reviews
 end
@@ -12,7 +14,7 @@ end
   get  '/logout', to: 'sessions#destroy'
 
   # get '/user/reviews', to: 'users#index'
-  match '/users/:id/reviews', to: 'users#index', via: 'get', :as => 'user_reviews'
+  # match '/users/:id/reviews', to: 'users#index', via: 'get', :as => 'user_reviews'
 
   get '/auth/facebook/callback' => 'sessions#facebook_login'
   get '/topinfluencers' => 'users#topinfluencers'

@@ -27,11 +27,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def index
-  @user_reviews = current_user.reviews
-  redirect_to user_reviews_path, alert: 'Not authorized' if current_user.id != session[:user_id]
-  end
-
   def edit
     #finds the user by using current user method
     @user = current_user

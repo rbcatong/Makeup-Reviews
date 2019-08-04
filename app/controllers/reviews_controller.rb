@@ -23,9 +23,17 @@ before_action :require_login
   end
 
   def index
-    @makeup = Makeup.find_by(id: params[:makeup_id])
-    @reviews = @makeup.reviews
+    # @reviews = @makeup.reviews
     #shows all reviews for makeup
+    if params[:makeup_id]
+        @makeup = Makeup.find_by(id: params[:makeup_id])
+        @reviews = @makeup.reviews
+      render :index
+    elsif params[:user_id]
+      @user = User.find_by(id: params[:user_id])
+      @reviews = @user.reviews
+      render 'users/index'
+    end
   end
 
   def show
@@ -60,7 +68,7 @@ before_action :require_login
   end
 
   def averageproducts
-    
+
     @makeups = Makeup.all
     @averageproducts = Review.averageproducts
   end
