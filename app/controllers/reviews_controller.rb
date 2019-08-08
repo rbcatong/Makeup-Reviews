@@ -32,7 +32,7 @@ before_action :require_login
     elsif params[:user_id]
       @user = User.find_by(id: params[:user_id])
       @reviews = @user.reviews
-      render 'users/index'
+      render :index
     end
   end
 
