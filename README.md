@@ -1,27 +1,6 @@
 # README
 
 This is an application in which you can add makeup products and review them among users!
-You may create an account or log in via Facebook. Enjoy!
+You may create an account or log in via Facebook. This allows you and other users to form a community in which you can login and post about the products that you rave or don't rave about. Enjoy!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
